@@ -1,0 +1,23 @@
+# .gitignore
+
+# Go
+tmp/
+bin/
+*.exe
+*.log
+*.out
+*.test
+
+# Node/Vite
+node_modules/
+dist/
+
+# Env
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
