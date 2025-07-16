@@ -8,6 +8,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
+      react: path.resolve(__dirname, "node_modules/react"),
+      "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
       "@components": path.resolve(__dirname, "src/components"),
       "@lib": path.resolve(__dirname, "src/lib"),
       "@hooks": path.resolve(__dirname, "src/hooks"),
@@ -25,6 +27,6 @@ export default defineConfig({
     },
   },
   server: {
-    port: 8080
-  }
+    port: 9090,
+  },
 });
