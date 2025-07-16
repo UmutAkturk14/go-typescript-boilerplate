@@ -1,29 +1,19 @@
 package main
 
 import (
-	"net/http"
+	"go-api-starter/internal/db"
+	"go-api-starter/routes"
 
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	db.Connect()
+	db.DB.AutoMigrate()
+
 	r := gin.Default()
 
-	r.GET("/ping", func(c *gin.Context) {
-		{
-			c.JSON(http.StatusOK, gin.H{
-				"message": "pong",
-			})
-		}
-	})
-
-	r.GET("/oi", func(c *gin.Context) {
-		{
-			c.JSON(http.StatusOK, gin.H{
-				"message": "Oi bruv",
-			})
-		}
-	})
+	routes.RegisterAll(r)
 
 	r.Run()
 }
