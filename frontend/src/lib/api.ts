@@ -1,6 +1,6 @@
-export async function postData<T = any>(
+export async function postData<T = unknown>(
   path: string,
-  data: Record<string, any>,
+  data: Record<string, unknown>,
   options: RequestInit = {}
 ): Promise<T> {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;

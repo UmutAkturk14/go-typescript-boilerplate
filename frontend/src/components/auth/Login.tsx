@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { postData } from "../lib/api";
+import { postData } from "../../lib/api";
 import { Link } from "react-router-dom";
 import { AuthCard } from "./AuthCard";
 
@@ -18,6 +18,7 @@ export default function Login() {
         { email, password }
       );
       setToken(data.token);
+      localStorage.setItem("authToken", token);
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError(error.message);
@@ -68,13 +69,8 @@ export default function Login() {
       </form>
 
       {error && <p className="text-red-600 mt-4 text-center">{error}</p>}
-      {token && (
-        <div className="mt-4 text-sm break-words text-green-600 text-center">
-          Token: <code>{token}</code>
-        </div>
-      )}
 
-      <p className="mt-6 text-center text-gray-600">
+      <p className="mt-6 text-center text-gray-600 text-sm">
         Don&apos;t have an account?{" "}
         <Link to="/register" className="text-purple-600 hover:underline">
           Register
